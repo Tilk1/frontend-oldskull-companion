@@ -1,14 +1,24 @@
 import { IonContent, IonPage } from '@ionic/react'
 import React from 'react'
+import { useGoogleLogin } from '@react-oauth/google'
 import bgImage from '../assets/unmask.jpg'
 import GoogleButton from '../components/GoogleButton'
 import './Login.css'
+import { loginWithGoogle } from '../api/login'
 
 const Login: React.FC = () => {
-  const handleGoogleLogin = () => {
-    console.log('Login con Google iniciado')
-    // Integrar flujo real de OAuth aquí
-  }
+  const handleGoogleLogin = useGoogleLogin({
+    onSuccess: async tokenResponse => {
+      if (!tokenResponse.access_token) return
+      try {
+        const data = await loginWithGoogle(tokenResponse.access_token)
+        console.log('JWT recibido:', data.jwt)
+      } catch (err) {
+        console.error('Error autenticando con backend', err)
+      }
+    },
+    onError: () => console.error('Login fallido'),
+  })
 
   return (
     <IonPage>
@@ -20,8 +30,10 @@ const Login: React.FC = () => {
           <div className="login-overlay">
             <div className="login-content">
               <h1 className="welcome-title">Oldskull Companion</h1>
-              <p className="welcome-subtitle">Forja tu leyenda y lleva el control de tus torneos en la Oldskull</p>
-              <GoogleButton onClick={handleGoogleLogin} />
+              <p className="welcome-subtitle">
+                Forja tu leyenda y lleva el control de tus torneos en la Oldskull
+              </p>
+              <GoogleButton onClick={() => handleGoogleLogin()} />
             </div>
           </div>
         </div>

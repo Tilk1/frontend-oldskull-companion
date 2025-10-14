@@ -1,18 +1,15 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { setupConfig } from '@ionic/core'
 import App from './App'
-
-setupConfig({
-  mode: 'ios'
-  //mode: 'md'
-})
+import { GoogleOAuthProvider } from '@react-oauth/google'
 
 const container = document.getElementById('root')
 const root = createRoot(container!)
 
 root.render(
   <React.StrictMode>
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
     <App />
+    </GoogleOAuthProvider>
   </React.StrictMode>
 )
