@@ -5,14 +5,18 @@ import bgImage from '../assets/unmask.jpg'
 import GoogleButton from '../components/GoogleButton'
 import './Login.css'
 import { loginWithGoogle } from '../api/login'
+import { useHistory } from 'react-router-dom'
 
 const Login: React.FC = () => {
+  const history = useHistory<History>()
+  
   const handleGoogleLogin = useGoogleLogin({
     onSuccess: async tokenResponse => {
       if (!tokenResponse.access_token) return
       try {
         const data = await loginWithGoogle(tokenResponse.access_token)
         console.log('JWT recibido:', data.jwt)
+        history.push('/home')
       } catch (err) {
         console.error('Error autenticando con backend', err)
       }

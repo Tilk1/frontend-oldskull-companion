@@ -52,7 +52,9 @@ const App: React.FC = () => (
 
         {/* Redirección por defecto */}
         <Route exact path="/">
-          <Redirect to="/login" /> {/* O a /home si ya querés entrar logueado */}
+          {localStorage.getItem('jwt')
+            ? <Redirect to="/home" />
+            : <Redirect to="/login" />}
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>
