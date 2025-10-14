@@ -1,14 +1,13 @@
-import { IonContent, IonPage, IonRippleEffect } from '@ionic/react'
+import { IonContent, IonPage } from '@ionic/react'
 import React from 'react'
-import googleButton from '../assets/login_google_button.svg'
 import bgImage from '../assets/unmask.jpg'
+import GoogleButton from '../components/GoogleButton'
 import './Login.css'
 
 const Login: React.FC = () => {
-
   const handleGoogleLogin = () => {
     console.log('Login con Google iniciado')
-    // Integrar tu flujo real de Google OAuth aquí
+    // Integrar flujo real de OAuth aquí
   }
 
   return (
@@ -20,12 +19,9 @@ const Login: React.FC = () => {
         >
           <div className="login-overlay">
             <div className="login-content">
-              <h1 className="welcome-title">Bienvenido a Oldskull Companion</h1>
-              <p className="welcome-subtitle">Inicia sesión con Google para continuar</p>
-                <button className="google-btn" onClick={handleGoogleLogin}>
-                <IonRippleEffect type="bounded" />
-                <img src={googleButton} alt="Google login" className="google-logo" />
-                </button>
+              <h1 className="welcome-title">Oldskull Companion</h1>
+              <p className="welcome-subtitle">Forja tu leyenda y lleva el control de tus torneos en la Oldskull</p>
+              <GoogleButton onClick={handleGoogleLogin} />
             </div>
           </div>
         </div>
