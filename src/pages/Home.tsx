@@ -1,4 +1,4 @@
-import { IonContent, IonPage, IonButton } from '@ionic/react'
+import { IonContent, IonHeader, IonToolbar, IonTitle, IonButton } from '@ionic/react'
 import React from 'react'
 import './Home.css'
 import bgImage from '../assets/unmask.jpg'
@@ -10,10 +10,11 @@ const Home: React.FC = () => {
   const handleLogout = () => {
     localStorage.removeItem('jwt')
     history.push('/login')
+    window.location.reload()
   }
 
   return (
-    <IonPage>
+    <>
       <IonContent fullscreen>
         <div
           className="home-background"
@@ -37,7 +38,7 @@ const Home: React.FC = () => {
           </div>
         </div>
       </IonContent>
-    </IonPage>
+    </>
   )
 }
 

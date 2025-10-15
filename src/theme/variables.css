@@ -1,2 +1,37 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
+/* Variables para modo claro (default) */
+/* Modo Claro (default) */
+:root {
+  --ion-background-color: #ffffff;
+  --ion-background-color-rgb: 255,255,255;
+  
+  --ion-text-color: #000000;
+  --ion-text-color-rgb: 0,0,0;
+  
+  --ion-color-primary: #3880ff;
+  --ion-color-primary-rgb: 56,128,255;
+  
+  --ion-toolbar-background: #f8f8f8;
+  --ion-item-background: #ffffff;
+}
+
+/* Modo Oscuro */
+body.dark {
+  --ion-background-color: #1e1e1e;
+  --ion-background-color-rgb: 30,30,30;
+  
+  --ion-text-color: #ffffff;
+  --ion-text-color-rgb: 255,255,255;
+  
+  --ion-color-primary: #428cff;
+  --ion-color-primary-rgb: 66,140,255;
+  
+  --ion-toolbar-background: #1a1a1a;
+  --ion-item-background: #2a2a2a;
+  
+  --ion-border-color: #333333;
+  --ion-card-background: #2a2a2a;
+}
+
+/* Los componentes de Ionic usarán automáticamente estas variables */
