@@ -80,15 +80,15 @@ const Login: React.FC = () => {
               </p>
 
               {/* Botón Web */}
-              <GoogleButton onClick={handleWebLogin} text="Login Web" />
+              <GoogleButton onClick={handleWebLogin} text="Iniciar con Google" />
 
-              {/* Botón Nativo */}
-              {Capacitor.isNativePlatform() && (
-                <GoogleButton
-                  onClick={handleNativeLogin}
-                  text="Login Nativo"
-                />
-              )}
+            {/* Botón Nativo - Solo en Android/iOS real */}
+            {Capacitor.getPlatform() === 'android' || Capacitor.getPlatform() === 'ios' ? (
+              <GoogleButton
+                onClick={handleNativeLogin}
+                text="Iniciar con Google"
+              />
+            ) : null}
             </div>
           </div>
         </div>
