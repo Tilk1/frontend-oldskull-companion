@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "start": "ionic serve",
+    "start": "npx serve -s build",
     "preview": "vite preview",
     "test.e2e": "cypress run",
     "test.unit": "vitest",
