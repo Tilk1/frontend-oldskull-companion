@@ -24,16 +24,14 @@ const Login: React.FC = () => {
       try {
         const data = await loginWithGoogle(tokenResponse.access_token)
         console.log('JWT recibido (web):', data.jwt)
-        login(data.jwt) // ← Usar el contexto para login
-        history.replace('/home') // ← Redirección sin reload
+        login(data.jwt)
+        history.replace('/app') // ← CAMBIA AQUÍ: '/app' en lugar de '/home'
       } catch (error) {
-        console.error('Error autenticando con backend (web)', error)
-        alert('Error en autenticación web: ' + error)
+        alert('Error autenticando con backend (web)' + error)
       }
     },
     onError: (error) => {
-      console.error('Login web fallido:', error)
-      alert('Error en login web')
+      alert('Error en login web' + error)
     },
   })
 
@@ -51,10 +49,9 @@ const Login: React.FC = () => {
       }
       const data = await loginWithGoogle(result.authentication.accessToken)
       console.log('JWT recibido (nativo):', data.jwt)
-      login(data.jwt) // ← Usar el contexto para login
-      history.replace('/home') // ← Redirección sin reload
+      login(data.jwt)
+      history.replace('/app') // ← CAMBIA AQUÍ: '/app' en lugar de '/home'
     } catch (error) {
-      console.error('Login nativo fallido:', error)
       alert('Error en login nativo: ' + error)
     }
   }

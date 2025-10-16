@@ -25,14 +25,20 @@ const SideMenu = () => {
 
   const handleNavigation = (path: string) => {
     closeMenu()
-    history.push(path)
+    history.push(`/app${path}`)
   }
 
   // Elegir logo según el tema
   const logo = isDark ? logoOscuro : logoClaro
 
-  return (
-    <IonMenu contentId="main-content" side="start" className="modern-side-menu">
+   return (
+    <IonMenu 
+      contentId="main-content"
+      side="end"
+      className="modern-side-menu"
+      type="overlay"           
+      swipeGesture={true}     
+    >
       <IonHeader>
         <IonToolbar className="menu-header">
           <div className="logo-container">
@@ -58,7 +64,7 @@ const SideMenu = () => {
 
           <IonItem 
             button 
-            onClick={() => handleNavigation('/perfil')}
+            onClick={() => handleNavigation('/plus')}  // ← CAMBIADO: Ruta diferente
             detail={false}
             className="menu-item plus-item"
           >

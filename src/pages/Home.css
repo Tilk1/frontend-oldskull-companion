@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;700&display=swap');
 
 .home-background {
-  width: 100%;
-  height: 100%;
   background-size: cover;
   background-position: center;
   position: relative;
+  background-repeat: repeat;
 }
 
 /* Overlay con degradado sutil */
@@ -25,7 +24,6 @@
 .home-content {
   text-align: center;
   color: #fff;
-  padding: 1rem;
 }
 
 /* Título épico */
@@ -63,4 +61,145 @@
 .logout-btn:hover {
   transform: translateY(-2px);
   --box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+.home-overlay {
+  background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+}
+
+.home-content {
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.golden-button {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  --background: linear-gradient(135deg, #e6c76e, #c8a951, #b68a23);
+  --background-activated: linear-gradient(135deg, #f1d27a, #d4af37);
+  --color: #1b1306;
+  --border-radius: 10px;
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  animation: golden-pulse 3s infinite alternate;
+}
+
+.golden-button:hover,
+.golden-button:focus {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+}
+
+@keyframes golden-pulse {
+  0% {
+    filter: brightness(1);
+  }
+  100% {
+    filter: brightness(1.2);
+  }
+}
+
+
+
+.posts-container {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  width: 100%;
+}
+
+.post-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  margin: 20px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-details ion-card-title {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.user-details ion-card-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85em;
+  color: #666;
+}
+
+.post-content {
+  color: #333;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+  font-size: 1em;
+}
+
+.post-stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  border-top: 1px solid #eee;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #666;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.stat:hover {
+  color: #3880ff;
+}
+
+@media (max-width: 768px) {
+  .posts-container {
+    padding: 0 15px;
+  }
+  
+  .post-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .post-stats {
+    justify-content: space-between;
+    padding: 15px 10px 0;
+  }
 }

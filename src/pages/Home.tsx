@@ -1,4 +1,17 @@
-import { IonContent, IonHeader, IonToolbar, IonTitle, IonButton } from '@ionic/react'
+import { 
+  IonContent, 
+  IonHeader, 
+  IonToolbar, 
+  IonTitle, 
+  IonButton,
+  IonButtons,
+  IonMenuButton,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
+  IonChip
+} from '@ionic/react'
 import React from 'react'
 import './Home.css'
 import bgImage from '../assets/unmask.jpg'
@@ -13,8 +26,34 @@ const Home: React.FC = () => {
     window.location.reload()
   }
 
+  // Datos de ejemplo para los anuncios
+  const announcements = [
+    {
+      id: 1,
+      title: 'NUEVO VIDEO EN EL CANAL!!!!',
+      content: 'MonoBlack Suicide ⚫️ [Marcos 🪩] VS Enchantress ⚪️🟢 [Jale]',
+      author: 'Jose',
+      videoUrl: 'https://www.youtube.com/embed/gSQyRK3_Itg?si=CLGWbLLSwFk7mB1H'
+    },
+    {
+      id: 2,
+      title: 'NUEVO VIDEO EN EL CANAL!!!!',
+      content: 'MonoBlack Suicide ⚫️ [Marcos 🪩] VS Enchantress ⚪️🟢 [Jale]',
+      author: 'Jose',
+      videoUrl: 'https://www.youtube.com/embed/gSQyRK3_Itg?si=CLGWbLLSwFk7mB1H'
+    },
+  ]
+
   return (
     <>
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot="end">
+            <IonMenuButton />
+          </IonButtons>
+        </IonToolbar>
+      </IonHeader>
+      
       <IonContent fullscreen>
         <div
           className="home-background"
@@ -22,18 +61,39 @@ const Home: React.FC = () => {
         >
           <div className="home-overlay">
             <div className="home-content">
-              <h1 className="home-title">Inicio exitoso</h1>
-              <p className="home-subtitle">
-                Las próximas funcionalidades estarán disponibles pronto...
-              </p>
-
-              <IonButton
-                className="logout-btn"
-                color="light"
-                onClick={handleLogout}
-              >
-                Cerrar sesión
-              </IonButton>
+              <h1 className="home-title">Últimas noticias</h1>
+              
+              {/* Anuncios */}
+              <div className="announcements-container">
+                {announcements.map((announcement) => (
+                  <IonCard key={announcement.id} className="announcement-card">
+                    <IonCardHeader>
+                      <div className="announcement-header">
+                        <IonCardTitle>{announcement.title}</IonCardTitle>
+                      </div>
+                    </IonCardHeader>
+                    <IonCardContent>
+                      <p className="announcement-content">{announcement.content}</p>
+                      {announcement.videoUrl && (
+                        <div className="video-container">
+                          <iframe
+                            width="100%"
+                            height="200"
+                            src={announcement.videoUrl}
+                            title="Video anuncio"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          ></iframe>
+                      <div className="announcement-author">
+                        Por: {announcement.author}
+                      </div>
+                        </div>
+                      )}
+                    </IonCardContent>
+                  </IonCard>
+                ))}
+              </div>
             </div>
           </div>
         </div>

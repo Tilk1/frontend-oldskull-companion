@@ -1,0 +1,51 @@
+.ranking-background {
+  background-image: url('../assets/unmask.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #000; /* rellena los bordes que puedan quedar */
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  background-position: top;
+}
+
+/* capa de oscurecimiento */
+.ranking-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.788); /* podés ajustar a 0.8 o 0.9 si querés más oscuro */
+  z-index: 0;
+}
+
+/* tu contenido por encima */
+.ranking-overlay {
+  position: relative;
+  z-index: 1;
+}
+
+/* Para móvil: correr la imagen hacia la izquierda */
+@media (max-width: 768px) {
+  .ranking-background {
+    background-position: 20% top;
+  }
+}
+
+
+.ranking-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: #f5dca3;
+  text-shadow: 2px 10px 20px rgba(0, 0, 0, 0.8);
+
+}
+
+/* Subtítulo con tono místico */
+.ranking-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #ffeec7;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+}

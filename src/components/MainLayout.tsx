@@ -1,11 +1,17 @@
+import { IonPage } from '@ionic/react'
 import SideMenu from './SideMenu'
-import BottomTabs from './BottomTabs'
 
-const MainLayout = () => {
+interface MainLayoutProps {
+  children: React.ReactNode
+}
+
+const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <>
+      <IonPage>
+        {children}
+      </IonPage>
       <SideMenu />
-      <BottomTabs />
     </>
   )
 }

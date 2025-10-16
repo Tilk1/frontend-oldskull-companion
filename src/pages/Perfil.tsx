@@ -1,12 +1,20 @@
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/react'
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonMenuButton } from '@ionic/react'
 
-const Perfil = () => {
+const Perfil: React.FC = () => {
   return (
-    <>
-      <IonContent>
+    <>  {/* ← QUITA IonPage de aquí */}
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot="end">
+            <IonMenuButton />
+          </IonButtons>
+          <IonTitle>Perfil</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent fullscreen>
         <div style={{ padding: '16px' }}>
-          <h2>Mi Perfil</h2>
-          <p>Información del usuario aquí.</p>
+          <h1>Contenido de Perfil</h1>
+          <p>Esta es la página de perfil del usuario.</p>
         </div>
       </IonContent>
     </>

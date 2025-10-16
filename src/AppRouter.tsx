@@ -1,27 +1,28 @@
-import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
-import { IonRouterOutlet } from '@ionic/react'
-import Login from './pages/Login'
-import MainLayout from './components/MainLayout'
+import { Redirect, Route, Switch } from 'react-router-dom'
 import { useAuth } from './context/AuthContext'
+import Login from './pages/Login'
+import TabsLayout from './components/TabsLayout'
 
 const AppRouter: React.FC = () => {
   const { isAuthenticated } = useAuth()
 
   return (
-    <IonRouterOutlet>
-      {isAuthenticated ? (
-        // Una sola ruta que contiene todo (tabs + menú)
-        <Route path="/" component={MainLayout} />
-      ) : (
-        // Usuario no autenticado
-        <>
-          <Route exact path="/login" component={Login} />
-          <Redirect exact from="/" to="/login" />
-          <Redirect to="/login" />
-        </>
-      )}
-    </IonRouterOutlet>
+    <Switch>
+      <Route path="/login" component={Login} />
+      <Route 
+        path="/app" 
+        render={() => 
+          isAuthenticated ? <TabsLayout /> : <Redirect to="/login" />
+        } 
+      />
+      <Route 
+        exact 
+        path="/" 
+        render={() => 
+          <Redirect to={isAuthenticated ? "/app" : "/login"} />
+        } 
+      />
+    </Switch>
   )
 }
 

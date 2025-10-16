@@ -14,5 +14,16 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/setupTests.ts',
+  },
+  build: {
+    chunkSizeWarningLimit: 1000, // Aumenta el límite de 500kb a 1000kb
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          ionic: ['@ionic/react', '@ionic/react-router'],
+        }
+      }
+    }
   }
 })

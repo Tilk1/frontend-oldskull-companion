@@ -1,8 +1,16 @@
-import { IonContent } from '@ionic/react'
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonMenuButton } from '@ionic/react'
 
 const Configuracion = () => {
   return (
     <>
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot="end">
+            <IonMenuButton />
+          </IonButtons>
+          <IonTitle>Configuración</IonTitle>
+        </IonToolbar>
+      </IonHeader>
       <IonContent>
         <div style={{ padding: '16px' }}>
           <h2>Configuración</h2>
