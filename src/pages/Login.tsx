@@ -78,17 +78,11 @@ const Login: React.FC = () => {
               <p className="welcome-subtitle">
                 Forja tu leyenda y lleva el control de tus torneos en la Oldskull
               </p>
-
-              {/* Botón Web */}
-              <GoogleButton onClick={handleWebLogin} text="Iniciar con Google" />
-
-            {/* Botón Nativo - Solo en Android/iOS real */}
-            {Capacitor.getPlatform() === 'android' || Capacitor.getPlatform() === 'ios' ? (
-              <GoogleButton
-                onClick={handleNativeLogin}
-                text="Iniciar con Google"
-              />
-            ) : null}
+              {Capacitor.isNativePlatform() ? (
+                <GoogleButton onClick={handleNativeLogin} text="Continuar con Google" />
+              ) : (
+                <GoogleButton onClick={handleWebLogin} text="Continuar con Google" />
+              )}
             </div>
           </div>
         </div>
