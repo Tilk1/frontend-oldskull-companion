@@ -4,7 +4,8 @@ ionic serve
 ### compilar para apk
 npm run build
 npx cap sync android
-npx cap open android
+cd android
+./gradlew assembleDebug
 
 ### compilar para ios
 npx cap sync ios

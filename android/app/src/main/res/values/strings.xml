@@ -4,4 +4,5 @@
     <string name="title_activity_main">Oldskull Companion</string>
     <string name="package_name">com.santiago.oldskull</string>
     <string name="custom_url_scheme">com.santiago.oldskull</string>
+    <string name="server_client_id">991636666891-ptobn9nogjh4os1jk8fsb6q2b85mbdr6.apps.googleusercontent.com</string>
 </resources>
