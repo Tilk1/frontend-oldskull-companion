@@ -14,7 +14,7 @@ import {
 } from '@ionic/react'
 import React from 'react'
 import './Home.css'
-import bgImage from '../assets/unmask.jpg'
+import bgImage from '../assets/robot-urza.jpg'
 import { useHistory } from 'react-router-dom'
 
 const Home: React.FC = () => {
@@ -62,7 +62,9 @@ const Home: React.FC = () => {
           <div className="home-overlay">
             <div className="home-content">
               <h1 className="home-title">Últimas noticias</h1>
-              
+                <p className="ranking-subtitle">
+                    "Great peril demands formidable weaponry." —Urza
+                </p>
               {/* Anuncios */}
               <div className="announcements-container">
                 {announcements.map((announcement) => (

@@ -81,7 +81,7 @@ const Jugar: React.FC = () => {
                   Torneos Activos
                 </h1>
                 <p className="jugar-subtitle">
-                  Únete a la competencia
+                  "An audience of one with the malice of thousands."
                 </p>
               </IonCard>
 

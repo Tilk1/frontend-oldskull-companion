@@ -113,7 +113,7 @@ const Ranking: React.FC = () => {
                     </h1>
 
                     <p className="ranking-subtitle">
-                    Standing de mejores jugadores de la liga
+                    ". . . but the price of Mangara's freedom was Asmira's life."
                     </p>
 
                 </IonCard>

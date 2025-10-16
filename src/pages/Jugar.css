@@ -40,11 +40,11 @@
 /* Subtítulo con tono místico */
 .jugar-subtitle {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 400;
   color: #ffeec7;
   text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
-
+  font-style: italic;
 }
 
 /* Botón logout */
